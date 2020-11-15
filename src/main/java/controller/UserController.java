@@ -16,7 +16,7 @@ public class UserController extends BaseController {
             UserController.API_NAME;
 
     @Autowired
-    public UserController(){
+    public UserController() {
 
     }
 

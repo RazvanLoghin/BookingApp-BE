@@ -12,7 +12,6 @@ public class User {
     @Column(name = "id")
     private long id;
 
-
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
