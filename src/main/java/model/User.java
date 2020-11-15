@@ -12,7 +12,6 @@ public class User {
     @Column(name = "id")
     private long id;
 
-    @Email(message = "Email should be valid")
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
