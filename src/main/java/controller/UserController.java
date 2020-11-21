@@ -16,13 +16,12 @@ public class UserController extends BaseController {
         return ResponseEntity.ok("user1");
     }
 
-    @GetMapping(UserController.API_NAME)
+    @GetMapping("/users")
     public ResponseEntity<String> getAllUsers() {
         return ResponseEntity.ok("All users!");
     }
 
     @GetMapping("/hello")
-    @RequestMapping("/")
     ResponseEntity<String> greetUser() {
         return ResponseEntity.ok("Hello World!");
     }
