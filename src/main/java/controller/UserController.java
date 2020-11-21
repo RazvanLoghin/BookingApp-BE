@@ -22,13 +22,14 @@ public class UserController extends BaseController {
     }
 
     @GetMapping("/hello")
+    @RequestMapping("/")
     ResponseEntity<String> greetUser() {
         return ResponseEntity.ok("Hello World!");
     }
 
     @PostMapping(UserController.API_NAME)
     public ResponseEntity<String> createNewUser() {
-        return ResponseEntity.ok("New User created!");
+        return ResponseEntity.ok("new user");
     }
 
     @PutMapping(UserController.API_NAME + "/{id}")
