@@ -1,7 +1,5 @@
-package controller;
+package com.booking.app.controller;
 
-import model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +19,6 @@ public class UserController extends BaseController {
         return ResponseEntity.ok("All users!");
     }
 
-    @GetMapping("/hello")
-    ResponseEntity<String> greetUser() {
-        return ResponseEntity.ok("Hello World!");
-    }
-
     @PostMapping(UserController.API_NAME)
     public ResponseEntity<String> createNewUser() {
         return ResponseEntity.ok("new user");
@@ -38,7 +31,7 @@ public class UserController extends BaseController {
 
     @DeleteMapping(UserController.API_NAME + "/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable long id) {
-        return new ResponseEntity<>("User " + id + " has been deleted!", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("User " + id + " has been deleted!", HttpStatus.OK);
 
     }
 }
