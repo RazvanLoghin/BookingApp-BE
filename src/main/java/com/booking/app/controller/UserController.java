@@ -1,6 +1,6 @@
 package com.booking.app.controller;
 
-//import model.User;
+//import com.booking.app.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
