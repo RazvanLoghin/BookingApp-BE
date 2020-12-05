@@ -1,7 +1,6 @@
 package com.booking.app.model;
 
 import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 
 @Entity

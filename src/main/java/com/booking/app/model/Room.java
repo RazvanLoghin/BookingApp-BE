@@ -1,7 +1,6 @@
 package com.booking.app.model;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Room {
