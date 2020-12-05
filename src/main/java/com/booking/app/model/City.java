@@ -5,22 +5,20 @@ import javax.persistence.*;
 @Entity
 public class City {
 
+    @Column(unique = true)
     private String name;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
-    private Long zipCode;
 
     public City() {
     }
 
-    public City(String name, Long id, Long zipCode) {
+    public City(String name, Long id) {
         this.name = name;
         this.id = id;
-        this.zipCode = zipCode;
     }
 
     public String getName() {
@@ -39,11 +37,5 @@ public class City {
         this.id = id;
     }
 
-    public Long getZipCode() {
-        return zipCode;
-    }
 
-    public void setZipCode(Long zipCode) {
-        this.zipCode = zipCode;
-    }
 }

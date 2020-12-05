@@ -1,6 +1,7 @@
 package com.booking.app.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Room {
@@ -11,7 +12,7 @@ public class Room {
     private int floor;
     private long room_number;
 
-    @ManyToOne
+    @ManyToOne()
     private Hotel hotel;
 
     private int price;

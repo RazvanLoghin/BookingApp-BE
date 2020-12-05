@@ -1,6 +1,5 @@
 package com.booking.app.controller;
 
-//import com.booking.app.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +30,7 @@ public class UserController extends BaseController {
     }
 
     @PutMapping(UserController.API_NAME + "/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable long id){
+    public ResponseEntity<String> updateUser(@PathVariable long id) {
         return new ResponseEntity<>(String.format("User " + id, " has been updated!"), HttpStatus.ACCEPTED);
     }
 

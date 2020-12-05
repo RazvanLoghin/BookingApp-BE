@@ -1,38 +1,38 @@
 package com.booking.app.model;
 
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 public class Hotel {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private long id;
 
+    @Column(unique = true)
     private String name;
     private String address;
     private int rating;
     private boolean status;
 
-    @ManyToMany
-    private User manager;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="hotel", orphanRemoval = true)
-    @MapKeyColumn(name="id")
-    private List<Room> rooms = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinTable(name = "hotel_room", joinColumns = @JoinColumn(name = "hotel_id"), inverseJoinColumns = @JoinColumn(name = "room_id"))
+    private List<Room> rooms;
 
     public Hotel() {
     }
 
-    public Hotel(String name, String address, int rating, boolean status, User manager, ArrayList<Room> rooms) {
+    public Hotel(String name, String address, int rating, boolean status, ArrayList<Room> rooms) {
         this.name = name;
         this.address = address;
         this.rating = rating;
         this.status = status;
-        this.manager = manager;
         this.rooms = rooms;
     }
 
@@ -74,14 +74,6 @@ public class Hotel {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public User getManager() {
-        return manager;
-    }
-
-    public void setManager(User manager) {
-        this.manager = manager;
     }
 
     public List<Room> getRooms() {
