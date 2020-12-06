@@ -1,10 +1,12 @@
 package com.booking.app.model;
 
+import lombok.Data;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +20,7 @@ public class Hotel {
     private boolean status;
 
 
-    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
-    @JoinTable(name = "hotel_room", joinColumns = @JoinColumn(name = "hotel_id"), inverseJoinColumns = @JoinColumn(name = "room_id"))
+    @OneToMany(mappedBy = "hotel")
     private List<Room> rooms;
 
     public Hotel() {
@@ -30,54 +31,6 @@ public class Hotel {
         this.address = address;
         this.rating = rating;
         this.status = status;
-        this.rooms = rooms;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public List<Room> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
 }

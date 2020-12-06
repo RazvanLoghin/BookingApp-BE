@@ -1,8 +1,11 @@
 package com.booking.app.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class City {
 
     @Column(unique = true)
@@ -20,22 +23,4 @@ public class City {
         this.name = name;
         this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
 }

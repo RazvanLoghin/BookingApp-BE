@@ -9,7 +9,7 @@ public class RoomController extends BaseController {
     private static final String API_NAME = "rooms";
 
     @PostMapping(RoomController.API_NAME + "/{id}")
-    public ResponseEntity<String> createRoom(@PathVariable long id) {
+    public ResponseEntity<String> createRoom(@RequestBody long id) {
         return ResponseEntity.ok("Room created!");
     }
 
@@ -19,7 +19,7 @@ public class RoomController extends BaseController {
     }
 
     @GetMapping("rooms")
-    public ResponseEntity<String> showRooms(@PathVariable long id) {
+    public ResponseEntity<String> showRooms() {
         return ResponseEntity.ok("All available rooms!");
     }
 }

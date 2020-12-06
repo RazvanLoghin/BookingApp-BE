@@ -14,7 +14,7 @@ public class HotelController extends BaseController {
         return ResponseEntity.ok("Hotel Y");
     }
 
-    @GetMapping("/hotels")
+    @GetMapping(HotelController.API_NAME)
     public ResponseEntity<String> getAllHotels() {
         return ResponseEntity.ok("All hotels listed!");
     }
